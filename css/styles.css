@@ -1462,9 +1462,16 @@ footer {
   .card-subtitle { font-size: 7px; letter-spacing: 1.5px; margin-bottom: 8px; }
   .card-desc { display: none; }
   .card-btn { padding: 10px 10px; font-size: 7px; letter-spacing: 2px; }
-  /* Carpas: 1 columna (tienen más contenido de texto) */
-  .carpas-grid { grid-template-columns: 1fr; }
-  .carpa-img { height: 180px; }
+  /* Carpas: 2 columnas igual que armados */
+  .carpas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .carpa-img { height: 110px; }
+  .carpa-body { padding: 10px 10px 8px; }
+  .carpa-name { font-size: 14px; margin-bottom: 4px; }
+  .carpa-tag { font-size: 6px; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .carpa-desc { display: none; }
+  .carpa-footer { padding-top: 8px; }
+  .carpa-price { font-size: 13px; }
+  .carpa-cta { font-size: 6px; letter-spacing: 1.5px; }
   /* Categorías simple grid: 2 columnas */
   .cat-grid-simple { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   /* Tabs: scroll horizontal para evitar salto de línea */
