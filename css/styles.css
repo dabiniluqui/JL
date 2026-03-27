@@ -1375,7 +1375,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(8, 8, 8, 0.98);
+  background: var(--black);
   z-index: 999;
   flex-direction: column;
   align-items: center;
