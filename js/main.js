@@ -5,6 +5,26 @@ const WHATSAPP_NUMBER = '5491136727858';
 
 const armadosData = [
   {
+    id: 0,
+    nombre: 'Triángulo',
+    subtitulo: 'Estructura icónica de JL',
+    icon: '🔺',
+    imgs: ['img/triangulo1.jpg', 'img/triangulo2.jpg', 'img/triangulo3.jpg', 'img/triangulo4.jpg'],
+    img: 'img/triangulo1.jpg',
+    imgB: null,
+    precio: '',
+    descripcion: 'La estructura insignia de JL. Armado personalizable con opciones de tamaño y configuración para cada tipo de evento.',
+    items: [
+      'Tamaño: 3 o 4 metros por lado',
+      'Con o sin tarima para el DJ <em style="color:var(--gold-light);font-size:10px">(tarima disponible en versión 4m)</em>',
+      'Mesa Negra o Mesa Triangular',
+      'Estructura metálica premium',
+      'Iluminación integrada',
+      'Transporte y montaje incluido'
+    ],
+    nota: 'Armado 100% personalizable. Elegís el tamaño, la tarima y la mesa. Si querés la tarima, la estructura es de 4 metros por lado.'
+  },
+  {
     id: 1,
     nombre: 'Set Completo',
     subtitulo: 'La experiencia total',
@@ -490,10 +510,32 @@ function renderArmados() {
   const container = document.getElementById('armados-grid');
   if (!container) return;
 
-  container.innerHTML = armadosData.map(a => `
+  const total = armadosData.length;
+  container.innerHTML = armadosData.map((a, idx) => {
+    const numLabel = String(idx + 1).padStart(2, '0');
+    const totalLabel = String(total).padStart(2, '0');
+    let photoHtml = '';
+    if (a.imgs && a.imgs.length > 1) {
+      photoHtml = `
+        <div class="card-slider" data-current="0">
+          <div class="card-slider-track">
+            ${a.imgs.map((src, i) => `<img src="${src}" alt="${a.nombre} ${i+1}" loading="${i === 0 ? 'eager' : 'lazy'}" class="card-slide${i === 0 ? ' active' : ''}" />`).join('')}
+          </div>
+          <button class="slider-btn slider-prev" aria-label="Foto anterior">‹</button>
+          <button class="slider-btn slider-next" aria-label="Foto siguiente">›</button>
+          <div class="slider-dots">
+            ${a.imgs.map((_, i) => `<span class="slider-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
+          </div>
+        </div>`;
+    } else if (a.img) {
+      photoHtml = `<div class="card-photo${a.id <= 2 ? ' contain' : ''}"><img src="${a.img}" alt="${a.nombre}" loading="lazy" /></div>`;
+    } else {
+      photoHtml = `<span class="card-icon">${a.icon}</span>`;
+    }
+    return `
     <div class="armado-card reveal" data-id="${a.id}" role="button" tabindex="0" aria-label="Ver detalles de ${a.nombre}">
-      ${a.img ? `<div class="card-photo${a.id <= 2 ? ' contain' : ''}"><img src="${a.img}" alt="${a.nombre}" loading="lazy" /></div>` : `<span class="card-icon">${a.icon}</span>`}
-      <div class="card-number">0${a.id} / 05</div>
+      ${photoHtml}
+      <div class="card-number">${numLabel} / ${totalLabel}</div>
       <div class="card-name">${a.nombre}</div>
       <div class="card-subtitle">${a.subtitulo}</div>
       <div class="card-desc">${a.descripcion}</div>
@@ -502,8 +544,26 @@ function renderArmados() {
         <span>Ver detalles</span>
         <span>→</span>
       </button>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+
+  // Slider logic
+  container.querySelectorAll('.card-slider').forEach(slider => {
+    const slides = slider.querySelectorAll('.card-slide');
+    const dots = slider.querySelectorAll('.slider-dot');
+    let current = 0;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    slider.querySelector('.slider-next').addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
+    slider.querySelector('.slider-prev').addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
+  });
 
   container.querySelectorAll('.armado-card').forEach(card => {
     const handler = () => {
