@@ -258,8 +258,9 @@
 
     <div class="eventos-grid">
 
+      <!-- Card 1: carga automática -->
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper evento-embed-reel">
+        <div class="evento-embed-wrapper">
           <blockquote
             class="instagram-media"
             data-instgrm-permalink="https://www.instagram.com/p/DWsDzdrjOJ0/"
@@ -269,24 +270,34 @@
         <p class="evento-caption">Evento especial</p>
       </div>
 
+      <!-- Card 2: click para cargar (TikTok) -->
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper evento-embed-reel">
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DTTFdh1AMsF/"
-            data-instgrm-version="14"
-          ></blockquote>
+        <div class="evento-embed-wrapper"
+             data-embed-type="tiktok"
+             data-embed-cite="https://www.tiktok.com/@jl.audioandevents/video/7593397838764084501"
+             data-embed-video-id="7593397838764084501">
+          <div class="evento-overlay" role="button" tabindex="0" aria-label="Reproducir video">
+            <div class="evento-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="evento-overlay-hint">Tocá para reproducir</span>
+          </div>
         </div>
         <p class="evento-caption">Armado completo</p>
       </div>
 
+      <!-- Card 3: click para cargar (TikTok) -->
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper evento-embed-reel">
-          <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DRKe83ugDcx/"
-            data-instgrm-version="14"
-          ></blockquote>
+        <div class="evento-embed-wrapper"
+             data-embed-type="tiktok"
+             data-embed-cite="https://www.tiktok.com/@jl.audioandevents/video/7574028726971747604"
+             data-embed-video-id="7574028726971747604">
+          <div class="evento-overlay" role="button" tabindex="0" aria-label="Reproducir video">
+            <div class="evento-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span class="evento-overlay-hint">Tocá para reproducir</span>
+          </div>
         </div>
         <p class="evento-caption">Fiesta en carpa</p>
       </div>
@@ -297,15 +308,13 @@
       (function() {
         if (window.instgrm) {
           window.instgrm.Embeds.process();
-          return;
+        } else {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.instagram.com/embed.js';
+          s.onload = function() { if (window.instgrm) window.instgrm.Embeds.process(); };
+          document.body.appendChild(s);
         }
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.instagram.com/embed.js';
-        s.onload = function() {
-          if (window.instgrm) window.instgrm.Embeds.process();
-        };
-        document.body.appendChild(s);
       })();
     </script>
   </section>

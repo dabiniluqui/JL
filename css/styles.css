@@ -1616,22 +1616,68 @@ footer {
 .evento-embed-wrapper {
   position: relative;
   width: 100%;
-  min-height: 480px;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--dark-3);
   touch-action: manipulation;
   -webkit-overflow-scrolling: touch;
-  display: flex;
-  align-items: stretch;
 }
 
 .evento-embed-wrapper .instagram-media,
+.evento-embed-wrapper .tiktok-embed,
 .evento-embed-wrapper iframe {
   width: 100% !important;
   max-width: none !important;
   min-width: 0 !important;
   margin: 0 !important;
   flex: 1;
+}
+
+.evento-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: radial-gradient(ellipse at center, rgba(109, 40, 217, 0.2) 0%, var(--dark-3) 72%);
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.evento-overlay:hover {
+  background: radial-gradient(ellipse at center, rgba(109, 40, 217, 0.35) 0%, var(--dark-3) 72%);
+}
+
+.evento-play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.18);
+  border: 1.5px solid rgba(139, 92, 246, 0.55);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.evento-overlay:hover .evento-play-btn {
+  transform: scale(1.1);
+  background: rgba(139, 92, 246, 0.32);
+  box-shadow: 0 0 36px rgba(139, 92, 246, 0.45);
+}
+
+.evento-overlay-hint {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  pointer-events: none;
 }
 
 .evento-caption {

@@ -698,3 +698,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 40);
   });
 });
+
+// ===== EVENTOS: CLICK-TO-PLAY =====
+document.querySelectorAll('.evento-embed-wrapper[data-embed-type]').forEach(function(wrapper) {
+  var overlay = wrapper.querySelector('.evento-overlay');
+  if (!overlay) return;
+
+  function activate() {
+    var type = wrapper.dataset.embedType;
+
+    if (type === 'instagram') {
+      var bq = document.createElement('blockquote');
+      bq.className = 'instagram-media';
+      bq.setAttribute('data-instgrm-permalink', wrapper.dataset.embedPermalink);
+      bq.setAttribute('data-instgrm-version', '14');
+      wrapper.insertBefore(bq, overlay);
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      } else {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.instagram.com/embed.js';
+        s.onload = function() { if (window.instgrm) window.instgrm.Embeds.process(); };
+        document.body.appendChild(s);
+      }
+    } else if (type === 'tiktok') {
+      // Iframe directo — independiente por tarjeta, no requiere embed.js compartido
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.tiktok.com/embed/v2/' + wrapper.dataset.embedVideoId;
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share');
+      iframe.setAttribute('sandbox', 'allow-popups allow-popups-to-escape-sandbox allow-scripts allow-same-origin allow-forms');
+      wrapper.insertBefore(iframe, overlay);
+    }
+
+    overlay.style.transition = 'opacity 0.3s ease';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    setTimeout(function() { overlay.style.display = 'none'; }, 300);
+  }
+
+  overlay.addEventListener('click', activate);
+  overlay.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') activate();
+  });
+});
