@@ -259,54 +259,55 @@
     <div class="eventos-grid">
 
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper">
-          <iframe
-            src="https://www.instagram.com/p/DWsDzdrjOJ0/embed/"
-            class="evento-iframe"
-            frameborder="0"
-            scrolling="no"
-            allowtransparency="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            title="Post de Instagram JL Productora"
-            loading="lazy"
-          ></iframe>
+        <div class="evento-embed-wrapper evento-embed-reel">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DWsDzdrjOJ0/"
+            data-instgrm-version="14"
+          ></blockquote>
         </div>
         <p class="evento-caption">Evento especial</p>
       </div>
 
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper">
-          <iframe
-            src="https://www.instagram.com/reel/DTTFdh1AMsF/embed/"
-            class="evento-iframe"
-            frameborder="0"
-            scrolling="no"
-            allowtransparency="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            title="Reel de Instagram JL Productora"
-            loading="lazy"
-          ></iframe>
+        <div class="evento-embed-wrapper evento-embed-reel">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DTTFdh1AMsF/"
+            data-instgrm-version="14"
+          ></blockquote>
         </div>
         <p class="evento-caption">Armado completo</p>
       </div>
 
       <div class="evento-card reveal">
-        <div class="evento-embed-wrapper">
-          <iframe
-            src="https://www.instagram.com/reel/DRKe83ugDcx/embed/"
-            class="evento-iframe"
-            frameborder="0"
-            scrolling="no"
-            allowtransparency="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            title="Reel de Instagram JL Productora"
-            loading="lazy"
-          ></iframe>
+        <div class="evento-embed-wrapper evento-embed-reel">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DRKe83ugDcx/"
+            data-instgrm-version="14"
+          ></blockquote>
         </div>
         <p class="evento-caption">Fiesta en carpa</p>
       </div>
 
     </div>
+
+    <script>
+      (function() {
+        if (window.instgrm) {
+          window.instgrm.Embeds.process();
+          return;
+        }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.instagram.com/embed.js';
+        s.onload = function() {
+          if (window.instgrm) window.instgrm.Embeds.process();
+        };
+        document.body.appendChild(s);
+      })();
+    </script>
   </section>
 
   <!-- ===== POLÍTICAS ===== -->
