@@ -459,29 +459,68 @@ const modalOverlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
 
 function openModal(data) {
-  const modalTag = document.getElementById('modal-tag');
-  const modalTitle = document.getElementById('modal-title');
-  const modalPrice = document.getElementById('modal-price');
+  const modalTag       = document.getElementById('modal-tag');
+  const modalTitle     = document.getElementById('modal-title');
+  const modalPrice     = document.getElementById('modal-price');
   const modalItemsList = document.getElementById('modal-items-list');
-  const modalNote = document.getElementById('modal-note');
-  const modalWaBtn = document.getElementById('modal-wa-btn');
-  const modalImgEl = document.getElementById('modal-img');
+  const modalNote      = document.getElementById('modal-note');
+  const modalWaBtn     = document.getElementById('modal-wa-btn');
+  const modalMedia     = document.getElementById('modal-media');
+  const modalImgEl     = document.getElementById('modal-img');
+  const modalSlider    = document.getElementById('modal-slider');
+  const sliderTrack    = document.getElementById('modal-slider-track');
+  const sliderDots     = document.getElementById('modal-slider-dots');
 
-  modalTag.textContent = data.subtitulo || data.tipo || 'Detalle del servicio';
+  modalTag.textContent   = data.subtitulo || data.tipo || 'Detalle del servicio';
   modalTitle.textContent = data.nombre;
   modalPrice.textContent = data.precio;
   modalPrice.style.display = data.precio ? '' : 'none';
   modalItemsList.innerHTML = data.items.map(item => `<li>${item}</li>`).join('');
   modalNote.textContent = data.nota || data.descripcion || '';
 
-  if (modalImgEl) {
-    if (data.img) {
-      modalImgEl.src = data.img;
-      modalImgEl.alt = data.nombre;
-      modalImgEl.style.display = 'block';
-    } else {
-      modalImgEl.style.display = 'none';
+  // Reset
+  modalImgEl.style.display  = 'none';
+  modalSlider.style.display = 'none';
+  modalMedia.style.display  = 'none';
+
+  if (data.imgs && data.imgs.length > 1) {
+    let current = 0;
+    sliderTrack.innerHTML = data.imgs.map((src, i) =>
+      `<img src="${src}" alt="${data.nombre} ${i+1}" class="modal-slide${i===0?' active':''}" loading="${i===0?'eager':'lazy'}" />`
+    ).join('');
+    sliderDots.innerHTML = data.imgs.map((_, i) =>
+      `<span class="modal-dot${i===0?' active':''}"></span>`
+    ).join('');
+
+    const slides = sliderTrack.querySelectorAll('.modal-slide');
+    const dots   = sliderDots.querySelectorAll('.modal-dot');
+
+    // Clonar botones para limpiar listeners de aperturas anteriores
+    const btnPrev = document.getElementById('modal-slider-prev');
+    const btnNext = document.getElementById('modal-slider-next');
+    const newPrev = btnPrev.cloneNode(true);
+    const newNext = btnNext.cloneNode(true);
+    btnPrev.parentNode.replaceChild(newPrev, btnPrev);
+    btnNext.parentNode.replaceChild(newNext, btnNext);
+
+    function goToModal(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
     }
+    newNext.addEventListener('click', () => goToModal(current + 1));
+    newPrev.addEventListener('click', () => goToModal(current - 1));
+
+    modalSlider.style.display = 'block';
+    modalMedia.style.display  = 'block';
+
+  } else if (data.img) {
+    modalImgEl.src = data.img;
+    modalImgEl.alt = data.nombre;
+    modalImgEl.style.display = 'block';
+    modalMedia.style.display  = 'block';
   }
 
   const msg = encodeURIComponent(`Hola Lucas, me interesó el ${data.nombre}`);
