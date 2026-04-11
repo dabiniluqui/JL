@@ -26,7 +26,7 @@ const armadosData = [
   },
   {
     id: 1,
-    nombre: 'Set Completo',
+    nombre: 'Set Completo A',
     subtitulo: 'La experiencia total',
     icon: '🏆',
     media: [
@@ -34,8 +34,9 @@ const armadosData = [
       { type: 'video', src: 'video/armadocompleto.mov' }
     ],
     img: 'img/armadoc0.jpg',
+    mesa: 'Mesa Negra',
     precio: '',
-    descripcion: 'El armado más completo: tarima, rack de luces, consola profesional, 2 flashes y 2 láseres.',
+    descripcion: 'El armado más completo: tarima, rack de luces, consola profesional, 2 flashes y 2 láseres. Mesa Negra.',
     items: [
       'Tarima',
       'Mesa DJ',
@@ -54,23 +55,29 @@ const armadosData = [
   },
   {
     id: 2,
-    nombre: 'Set Mesa Extendida',
-    subtitulo: 'Más espacio de trabajo',
-    icon: '🎛️',
-    img: 'img/armado2_main.jpg',
-    imgB: 'img/armado2_b.jpg',
+    nombre: 'Set Completo B',
+    subtitulo: 'La experiencia total',
+    icon: '🏆',
+    media: [
+      { type: 'img',   src: 'img/armadotri2.jpg' },
+      { type: 'img',   src: 'img/armadotri1.jpg' },
+      { type: 'video', src: 'video/armadotri_jero.mp4' },
+      { type: 'video', src: 'video/armadotri_mora.mov' }
+    ],
+    img: 'img/armadotri2.jpg',
+    mesa: 'Mesa Triangular',
     precio: '',
-    descripcion: '2 tarimas para mayor superficie de operación, con show completo de luces, flash y láser.',
+    descripcion: 'El armado más completo: tarima, rack de luces, consola profesional, 2 flashes y 2 láseres. Mesa Triangular.',
     items: [
-      'Mesa DJ',
-      '2 Tarimas',
+      'Tarima',
+      'Mesa DJ Triangular',
       'Rack pro de Luces',
       'American Audio VMS 4.1 (consola)',
       'E-Sound KS-15 (2 parlantes)',
-      '2 Luces Led Wash',
+      '2 Luces Led Wash móviles',
       '6 Luces',
-      '1 Amwood PYD007 (Flash)',
-      '1 Láser Stage Lighting',
+      '2 Amwood PYD007 (Flashes)',
+      '2 Láseres Stage Lighting',
       'Trípodes para parlantes',
       'Transporte y montaje incluido',
       'Servicio de DJ incluido'
@@ -552,7 +559,7 @@ function openModal(data) {
     modalImgEl.onclick = () => openLightbox(modalImgEl.src, 'img', modalImgEl.alt);
   }
 
-  const msg = encodeURIComponent(`Hola Lucas, me interesó el ${data.nombre}`);
+  const msg = encodeURIComponent(`Hola Lucas, me interesó el ${data.nombre}${data.mesa ? ` con ${data.mesa}` : ''}`);
   modalWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 
   modalOverlay.classList.add('open');
