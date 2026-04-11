@@ -29,8 +29,11 @@ const armadosData = [
     nombre: 'Set Completo',
     subtitulo: 'La experiencia total',
     icon: '🏆',
-    img: 'img/armado1_main.jpg',
-    imgB: 'img/armado1_b.jpg',
+    media: [
+      { type: 'img',   src: 'img/armadoc0.jpg' },
+      { type: 'video', src: 'video/armadocompleto.mov' }
+    ],
+    img: 'img/armadoc0.jpg',
     precio: '',
     descripcion: 'El armado más completo: tarima, rack de luces, consola profesional, 2 flashes y 2 láseres.',
     items: [
@@ -483,17 +486,26 @@ function openModal(data) {
   modalSlider.style.display = 'none';
   modalMedia.style.display  = 'none';
 
-  if (data.imgs && data.imgs.length > 1) {
+  // Pausar cualquier video anterior antes de reemplazar el track
+  sliderTrack.querySelectorAll('video').forEach(v => v.pause());
+
+  const mediaItems = data.media || (data.imgs && data.imgs.length > 1 ? data.imgs.map(src => ({ type: 'img', src })) : null);
+
+  if (mediaItems) {
     let current = 0;
-    sliderTrack.innerHTML = data.imgs.map((src, i) =>
-      `<img src="${src}" alt="${data.nombre} ${i+1}" class="modal-slide${i===0?' active':''}" loading="${i===0?'eager':'lazy'}" />`
+    sliderTrack.innerHTML = mediaItems.map((item, i) =>
+      item.type === 'video'
+        ? `<video src="${item.src}" muted playsinline loop preload="none" class="modal-slide${i===0?' active':''}"></video>`
+        : `<img src="${item.src}" alt="${data.nombre} ${i+1}" class="modal-slide${i===0?' active':''}" loading="${i===0?'eager':'lazy'}" />`
     ).join('');
-    sliderDots.innerHTML = data.imgs.map((_, i) =>
+    sliderDots.innerHTML = mediaItems.map((_, i) =>
       `<span class="modal-dot${i===0?' active':''}"></span>`
     ).join('');
 
     const slides = sliderTrack.querySelectorAll('.modal-slide');
     const dots   = sliderDots.querySelectorAll('.modal-dot');
+
+    if (slides[0] && slides[0].tagName === 'VIDEO') slides[0].play().catch(() => {});
 
     // Clonar botones para limpiar listeners de aperturas anteriores
     const btnPrev = document.getElementById('modal-slider-prev');
@@ -504,14 +516,30 @@ function openModal(data) {
     btnNext.parentNode.replaceChild(newNext, btnNext);
 
     function goToModal(n) {
-      slides[current].classList.remove('active');
+      const prevEl = slides[current];
+      if (prevEl.tagName === 'VIDEO') prevEl.pause();
+      prevEl.classList.remove('active');
       dots[current].classList.remove('active');
       current = (n + slides.length) % slides.length;
-      slides[current].classList.add('active');
+      const nextEl = slides[current];
+      nextEl.classList.add('active');
       dots[current].classList.add('active');
+      if (nextEl.tagName === 'VIDEO') nextEl.play().catch(() => {});
     }
     newNext.addEventListener('click', () => goToModal(current + 1));
     newPrev.addEventListener('click', () => goToModal(current - 1));
+
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        if (!slide.classList.contains('active')) return;
+        if (slide.tagName === 'VIDEO') {
+          slide.pause();
+          openLightbox(slide.src, 'video');
+        } else {
+          openLightbox(slide.src, 'img', slide.alt);
+        }
+      });
+    });
 
     modalSlider.style.display = 'block';
     modalMedia.style.display  = 'block';
@@ -521,6 +549,7 @@ function openModal(data) {
     modalImgEl.alt = data.nombre;
     modalImgEl.style.display = 'block';
     modalMedia.style.display  = 'block';
+    modalImgEl.onclick = () => openLightbox(modalImgEl.src, 'img', modalImgEl.alt);
   }
 
   const msg = encodeURIComponent(`Hola Lucas, me interesó el ${data.nombre}`);
@@ -541,7 +570,40 @@ modalOverlay?.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape') { closeModal(); closeLightbox(); }
+});
+
+// ===== LIGHTBOX =====
+const lightbox       = document.getElementById('lightbox');
+const lightboxImg    = document.getElementById('lightbox-img');
+const lightboxVideo  = document.getElementById('lightbox-video');
+const lightboxClose  = document.getElementById('lightbox-close');
+
+function openLightbox(src, type = 'img', alt = '') {
+  if (type === 'video') {
+    lightboxImg.style.display   = 'none';
+    lightboxVideo.style.display = 'block';
+    lightboxVideo.src = src;
+    lightboxVideo.load();
+    lightboxVideo.play().catch(() => {});
+  } else {
+    lightboxVideo.style.display = 'none';
+    lightboxImg.style.display   = 'block';
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+  }
+  lightbox.classList.add('open');
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxVideo.pause();
+  lightboxVideo.src = '';
+}
+
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
 });
 
 // ===== RENDER ARMADOS =====
@@ -554,16 +616,20 @@ function renderArmados() {
     const numLabel = String(idx + 1).padStart(2, '0');
     const totalLabel = String(total).padStart(2, '0');
     let photoHtml = '';
-    if (a.imgs && a.imgs.length > 1) {
+    const mediaItems = a.media || (a.imgs && a.imgs.length > 1 ? a.imgs.map(src => ({ type: 'img', src })) : null);
+    if (mediaItems) {
       photoHtml = `
         <div class="card-slider" data-current="0">
           <div class="card-slider-track">
-            ${a.imgs.map((src, i) => `<img src="${src}" alt="${a.nombre} ${i+1}" loading="${i === 0 ? 'eager' : 'lazy'}" class="card-slide${i === 0 ? ' active' : ''}" />`).join('')}
+            ${mediaItems.map((item, i) => item.type === 'video'
+              ? `<video src="${item.src}" muted playsinline loop preload="none" class="card-slide${i === 0 ? ' active' : ''}"></video>`
+              : `<img src="${item.src}" alt="${a.nombre} ${i+1}" loading="${i === 0 ? 'eager' : 'lazy'}" class="card-slide${i === 0 ? ' active' : ''}" />`
+            ).join('')}
           </div>
-          <button class="slider-btn slider-prev" aria-label="Foto anterior">‹</button>
-          <button class="slider-btn slider-next" aria-label="Foto siguiente">›</button>
+          <button class="slider-btn slider-prev" aria-label="Elemento anterior">‹</button>
+          <button class="slider-btn slider-next" aria-label="Elemento siguiente">›</button>
           <div class="slider-dots">
-            ${a.imgs.map((_, i) => `<span class="slider-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
+            ${mediaItems.map((_, i) => `<span class="slider-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
           </div>
         </div>`;
     } else if (a.img) {
@@ -593,12 +659,18 @@ function renderArmados() {
     let current = 0;
 
     function goTo(n) {
-      slides[current].classList.remove('active');
+      const prevEl = slides[current];
+      if (prevEl.tagName === 'VIDEO') prevEl.pause();
+      prevEl.classList.remove('active');
       dots[current].classList.remove('active');
       current = (n + slides.length) % slides.length;
-      slides[current].classList.add('active');
+      const nextEl = slides[current];
+      nextEl.classList.add('active');
       dots[current].classList.add('active');
+      if (nextEl.tagName === 'VIDEO') nextEl.play().catch(() => {});
     }
+
+    if (slides[0] && slides[0].tagName === 'VIDEO') slides[0].play().catch(() => {});
 
     slider.querySelector('.slider-next').addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
     slider.querySelector('.slider-prev').addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });

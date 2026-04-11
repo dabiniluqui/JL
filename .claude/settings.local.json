@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"/c/Users/Gonza/Downloads/JL audio and events/Fotos Armados/ChatGPT Image 10 sept 2025, 08_09_28 p.m..png\" \"c:/Users/Gonza/Downloads/jl-productora/img/armadoc1.png\")",
+      "Bash(cp \"/c/Users/Gonza/Downloads/JL audio and events/Fotos Armados/ChatGPT Image 11 sept 2025, 03_43_46 p.m..png\" \"c:/Users/Gonza/Downloads/jl-productora/img/armadoc2.png\")",
+      "Bash(cp \"/c/Users/Gonza/Downloads/JL audio and events/Fotos Armados/IMG_4952.jpg\" \"c:/Users/Gonza/Downloads/jl-productora/img/armadoc3.jpg\")",
+      "Bash(cp \"/c/Users/Gonza/Downloads/JL audio and events/Videos WEB/Video vertical armado completo.mp4\" \"c:/Users/Gonza/Downloads/jl-productora/video/armadocompleto.mp4\")"
+    ]
+  }
+}
