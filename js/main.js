@@ -109,6 +109,35 @@ const armadosData = [
     nota: 'Incluye 6 horas de DJ. Tiempo adicional con costo extra por hora. Transporte y montaje incluidos.'
   },
   {
+    id: 7,
+    nombre: 'Set Base B',
+    subtitulo: 'Profesional y completo',
+    icon: '🎚️',
+    media: [
+      { type: 'img',   src: 'img/setbaseb1.jpg' },
+      { type: 'img',   src: 'img/setbaseb2.jpg' },
+      { type: 'img',   src: 'img/setbaseb3.jpg' },
+      { type: 'video', src: 'video/setbaseb.mov' }
+    ],
+    img: 'img/setbaseb1.jpg',
+    precio: '',
+    descripcion: 'Mesa DJ, rack de luces, consola profesional, wash móviles, flash y láser. Ideal para la mayoría de los eventos. Mesa Triangular.',
+    items: [
+      'Mesa DJ Triangular',
+      'Rack pro de Luces',
+      'American Audio VMS 4.1 (consola)',
+      'E-Sound KS-15 (2 parlantes)',
+      '2 Luces Led Wash móviles',
+      '4 Luces',
+      '1 Amwood PYD007 (Flash)',
+      '1 Láser Stage Lighting',
+      'Trípodes para parlantes',
+      'Transporte y montaje incluido',
+      'Servicio de DJ incluido'
+    ],
+    nota: 'Incluye 6 horas de DJ. Tiempo adicional con costo extra por hora. Transporte y montaje incluidos.'
+  },
+  {
     id: 4,
     nombre: 'Set Estándar',
     subtitulo: 'Calidad al aire libre',
