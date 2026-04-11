@@ -9,9 +9,14 @@ const armadosData = [
     nombre: 'Triángulo',
     subtitulo: 'Estructura icónica de JL',
     icon: '🔺',
-    imgs: ['img/triangulo1.jpg', 'img/triangulo2.jpg', 'img/triangulo3.jpg', 'img/triangulo4.jpg'],
+    media: [
+      { type: 'img',   src: 'img/triangulo1.jpg' },
+      { type: 'img',   src: 'img/triangulo2.jpg' },
+      { type: 'img',   src: 'img/triangulo3.jpg' },
+      { type: 'img',   src: 'img/triangulo4.jpg' },
+      { type: 'video', src: 'video/triangulo.mov' }
+    ],
     img: 'img/triangulo1.jpg',
-    imgB: null,
     precio: '',
     descripcion: 'La estructura insignia de JL. Armado personalizable con opciones de tamaño y configuración para cada tipo de evento.',
     items: [
