@@ -86,13 +86,13 @@ const armadosData = [
   },
   {
     id: 3,
-    nombre: 'Set Base',
+    nombre: 'Set Base A',
     subtitulo: 'Profesional y completo',
     icon: '🎚️',
-    img: 'img/armado3_main.jpg',
-    imgB: null,
+    imgs: ['img/setbasea1.jpg', 'img/setbasea2.jpg'],
+    img: 'img/setbasea1.jpg',
     precio: '',
-    descripcion: 'Mesa DJ, rack de luces, consola profesional, wash móviles, flash y láser. Ideal para la mayoría de los eventos.',
+    descripcion: 'Mesa DJ, rack de luces, consola profesional, wash móviles, flash y láser. Ideal para la mayoría de los eventos. Mesa Negra.',
     items: [
       'Mesa DJ',
       'Rack pro de Luces',
