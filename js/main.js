@@ -13,8 +13,7 @@ const armadosData = [
       { type: 'img',   src: 'img/triangulo1.jpg' },
       { type: 'img',   src: 'img/triangulo2.jpg' },
       { type: 'img',   src: 'img/triangulo3.jpg' },
-      { type: 'img',   src: 'img/triangulo4.jpg' },
-      { type: 'video', src: 'video/triangulo.mov' }
+      { type: 'img',   src: 'img/triangulo4.jpg' }
     ],
     img: 'img/triangulo1.jpg',
     precio: '',
