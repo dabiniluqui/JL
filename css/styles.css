@@ -1065,10 +1065,15 @@ section {
 .politica-item:hover .politica-icon { color: var(--gold-light); }
 
 .politica-icon {
-  font-size: 28px;
   color: var(--gold);
   transition: color 0.3s ease;
   margin-top: 4px;
+  flex-shrink: 0;
+}
+.politica-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
 .politica-title {
@@ -1420,7 +1425,12 @@ footer {
 }
 
 .wa-icon {
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.wa-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* ===== MODAL SLIDER ===== */

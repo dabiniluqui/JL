@@ -29,11 +29,14 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "JL Productora de Eventos",
-    "description": "Productora de eventos en Pilar, Zona Norte. Sonido profesional, iluminación, DJ, carpas y armados completos para fiestas en Pilar y alrededores, Buenos Aires.",
-    "url": "https://jlaudioandevents.com/",
-    "logo": "https://jlaudioandevents.com/img/logo.png",
-    "image": "https://jlaudioandevents.com/img/og-preview.jpg",
-    "telephone": "+54-9-11-3672-7858",
+    "alternateName": "JL Audio and Events",
+    "description": "Productora de eventos con sonido, iluminación, DJ, carpas, livings, pisos y calefacción en Pilar y Zona Norte.",
+    "url": "https://jlaudioandevents.com",
+    "logo": "https://jlaudioandevents.com/img/Logo_JL_Sin_Fondo.png",
+    "image": "https://jlaudioandevents.com/img/Logo_JL_Sin_Fondo.png",
+    "email": "dabiniluqui@gmail.com",
+    "telephone": ["+54-9-11-3672-7858", "+54-9-11-7098-2006"],
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Pilar",
@@ -42,17 +45,31 @@
     },
     "areaServed": [
       { "@type": "City", "name": "Pilar" },
-      { "@type": "AdministrativeArea", "name": "Zona Norte, Buenos Aires" }
+      { "@type": "City", "name": "Escobar" },
+      { "@type": "City", "name": "Tigre" },
+      { "@type": "City", "name": "Nordelta" },
+      { "@type": "City", "name": "Del Viso" },
+      { "@type": "City", "name": "Manzanares" },
+      { "@type": "City", "name": "Pilar del Este" },
+      { "@type": "AdministrativeArea", "name": "Zona Norte GBA" }
     ],
     "sameAs": [
-      "https://www.instagram.com/jl.audioandevents"
+      "https://www.instagram.com/jl.audioandevents",
+      "https://www.tiktok.com/@jl.audioandevents"
     ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    }],
     "serviceType": [
       "Organización de eventos",
-      "Sonido e iluminación para fiestas",
+      "Sonido e iluminación",
       "Alquiler de carpas",
       "DJ profesional",
       "Alquiler de livings",
+      "Pisos para eventos",
       "Calefacción para eventos"
     ]
   }
@@ -80,7 +97,7 @@
   <!-- NAV -->
   <nav role="navigation" aria-label="Navegación principal">
     <a href="#hero" class="nav-logo" aria-label="JL Productora - Inicio">
-      <img src="img/logo.png" alt="JL Productora de Eventos - Pilar, Buenos Aires" class="nav-logo-img" />
+      <img src="img/Logo_JL_Sin_Fondo.png" alt="JL Productora de Eventos - Pilar, Buenos Aires" class="nav-logo-img" />
       <div class="logo-text">
         <span>JL Audio and Events</span>
         <span>Productora de Eventos</span>
@@ -111,7 +128,7 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-logo-orb" aria-hidden="true">
-      <img src="img/logo.png" alt="JL Productora de Eventos - Sonido e Iluminación en Pilar" />
+      <img src="img/Logo_JL_Sin_Fondo.png" alt="JL Productora de Eventos - Sonido e Iluminación en Pilar" />
     </div>
     <div class="hero-content">
       <div class="hero-eyebrow" aria-label="JL Audio and Events — Productora de Eventos">
@@ -130,7 +147,7 @@
            target="_blank" rel="noopener noreferrer"
            class="btn-primary"
            aria-label="Cotizar mi evento por WhatsApp">
-          <span>🎉 Cotizá tu evento</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg> <span>Cotizá tu evento</span>
         </a>
         <a href="#armados" class="btn-secondary" aria-label="Ver nuestros armados">
           <span>Ver armados</span>
@@ -173,16 +190,16 @@
 
     <div class="categorias-tabs" role="tablist" aria-label="Categorías de productos">
       <button class="cat-tab active" data-target="panel-carpas" role="tab" aria-selected="true" aria-controls="panel-carpas">
-        ⛺ Carpas
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 21 12 3l8.5 18"/><path d="M12 21V9"/><path d="m6.5 21 5.5-8 5.5 8"/></svg> Carpas
       </button>
       <button class="cat-tab" data-target="panel-pisos" role="tab" aria-selected="false" aria-controls="panel-pisos">
-        🟫 Pisos
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Pisos
       </button>
       <button class="cat-tab" data-target="panel-livings" role="tab" aria-selected="false" aria-controls="panel-livings">
-        🛋️ Livings
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg> Livings
       </button>
       <button class="cat-tab" data-target="panel-calefactores" role="tab" aria-selected="false" aria-controls="panel-calefactores">
-        🔥 Calefactores
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Calefactores
       </button>
     </div>
 
@@ -370,7 +387,7 @@
     <div class="politicas-container">
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">🛡️</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div>
           <div class="politica-title">Responsabilidad por daños</div>
           <p class="politica-desc">
@@ -379,12 +396,12 @@
             el costo de reparación o reposición será cubierto por el contratante. Esto incluye mobiliario, estructuras,
             equipos de sonido y cualquier elemento provisto por JL.
           </p>
-          <div class="politica-highlight">⚠️ Aplica para daños por mal uso</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg> Aplica para daños por mal uso</div>
         </div>
       </div>
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">🎧</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
         <div>
           <div class="politica-title">Servicio de DJ</div>
           <p class="politica-desc">
@@ -393,12 +410,12 @@
             de las 6 horas acordadas, el tiempo adicional tendrá un <strong>costo por hora extra</strong> que
             se define al momento de la contratación.
           </p>
-          <div class="politica-highlight">🎵 6 horas incluidas · Horas extra con costo adicional</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> 6 horas incluidas · Horas extra con costo adicional</div>
         </div>
       </div>
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">📋</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
         <div>
           <div class="politica-title">Reserva y confirmación</div>
           <p class="politica-desc">
@@ -406,12 +423,12 @@
             La reserva garantiza la disponibilidad del equipamiento y el equipo humano para esa fecha específica.
             En caso de cancelación, se aplicará la política de devolución vigente al momento del contrato.
           </p>
-          <div class="politica-highlight">📅 Seña requerida para reservar fecha</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Seña requerida para reservar fecha</div>
         </div>
       </div>
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">⏰</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div>
           <div class="politica-title">Compromiso de Pago</div>
           <p class="politica-desc">
@@ -420,12 +437,12 @@
             periodo, el saldo pendiente deberá ser abonado obligatoriamente, independientemente de la
             realización del evento.
           </p>
-          <div class="politica-highlight">⏰ Cancelación dentro de las 48 hs previas: saldo exigible en su totalidad</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Cancelación dentro de las 48 hs previas: saldo exigible en su totalidad</div>
         </div>
       </div>
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">🚚</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect width="7" height="7" x="14" y="10" rx="1"/><path d="M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg></div>
         <div>
           <div class="politica-title">Traslado y cobertura geográfica</div>
           <p class="politica-desc">
@@ -434,12 +451,12 @@
             el costo de flete se cotiza por separado según la distancia y el volumen del armado.
             Consultanos sin compromiso para que te preparemos una cotización a medida.
           </p>
-          <div class="politica-highlight">📍 Base en Pilar · Traslado fuera de Pilar se cotiza aparte</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Base en Pilar · Traslado fuera de Pilar se cotiza aparte</div>
         </div>
       </div>
 
       <div class="politica-item reveal">
-        <div class="politica-icon" aria-hidden="true">🤝</div>
+        <div class="politica-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <div>
           <div class="politica-title">Compromiso de calidad</div>
           <p class="politica-desc">
@@ -448,7 +465,7 @@
             trabajamos para resolverlo sin costo adicional para el cliente. La satisfacción del cliente es
             nuestra prioridad absoluta.
           </p>
-          <div class="politica-highlight">✅ Garantía de lo acordado en contrato</div>
+          <div class="politica-highlight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Garantía de lo acordado en contrato</div>
         </div>
       </div>
 
@@ -472,13 +489,21 @@
          target="_blank" rel="noopener noreferrer"
          class="btn-primary"
          aria-label="Escribirnos por WhatsApp">
-        <span>💬 Escribinos por WhatsApp</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+        <span>Escribinos por WhatsApp</span>
       </a>
       <a href="https://www.instagram.com/jl.audioandevents?igsh=MWVhYTFyN3FiNnB4aQ%3D%3D&utm_source=qr"
          target="_blank" rel="noopener noreferrer"
          class="btn-secondary"
          aria-label="Seguirnos en Instagram">
-        <span>📸 Seguinos en Instagram</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        <span>Seguinos en Instagram</span>
+      </a>
+      <a href="mailto:dabiniluqui@gmail.com?subject=Consulta%20JL%20Productora&body=Hola%20Lucas%2C%20quiero%20cotizar%20un%20evento..."
+         class="btn-secondary"
+         aria-label="Escribirnos por email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span>Escribinos por mail</span>
       </a>
     </div>
   </section>
@@ -489,7 +514,7 @@
       Cobertura
     </div>
     <p style="font-size: 1.1rem; color: var(--muted); max-width: 480px; margin: 0 auto;">
-      📍 Trabajamos por <strong style="color: var(--gold);">Pilar — Zona Norte</strong>, Buenos Aires.
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:4px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Trabajamos por <strong style="color: var(--gold);">Pilar — Zona Norte</strong>, Buenos Aires.
     </p>
   </section>
 
@@ -498,7 +523,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="img/logo.png" alt="JL Productora de Eventos - Pilar, Zona Norte, Buenos Aires" class="footer-logo-img" />
+          <img src="img/Logo_JL_Sin_Fondo.png" alt="JL Productora de Eventos - Pilar, Zona Norte, Buenos Aires" class="footer-logo-img" />
           <p class="footer-tagline">
             Llevamos la fiesta a donde el cliente lo desee.
             Pilar, Buenos Aires.
@@ -508,19 +533,19 @@
                target="_blank" rel="noopener noreferrer"
                class="social-link"
                aria-label="Instagram de JL Productora">
-              📸
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
             <a href="https://wa.me/5491136727858?text=Hola%20Lucas%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20sus%20servicios"
                target="_blank" rel="noopener noreferrer"
                class="social-link"
                aria-label="WhatsApp de JL Productora">
-              💬
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
             </a>
-            <a href="https://www.tiktok.com/"
+            <a href="https://www.tiktok.com/@jl.audioandevents"
                target="_blank" rel="noopener noreferrer"
                class="social-link"
                aria-label="TikTok de JL Productora">
-              🎵
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
             </a>
           </div>
         </div>
@@ -542,23 +567,28 @@
             <li>
               <a href="https://wa.me/5491136727858?text=Hola%20Lucas%2C%20quiero%20consultar"
                  target="_blank" rel="noopener noreferrer">
-                📱 +54 9 11 3672-7858
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> +54 9 11 3672-7858
               </a>
             </li>
             <li>
               <a href="https://wa.me/5491170982006?text=Hola%2C%20quiero%20consultar%20sobre%20JL%20Productora"
                  target="_blank" rel="noopener noreferrer">
-                📱 +54 9 11 7098-2006
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> +54 9 11 7098-2006
               </a>
             </li>
             <li>
               <a href="https://www.instagram.com/jl.audioandevents?igsh=MWVhYTFyN3FiNnB4aQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
-                📸 @jl.audioandevents
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @jl.audioandevents
+              </a>
+            </li>
+            <li>
+              <a href="mailto:dabiniluqui@gmail.com?subject=Consulta%20JL%20Productora">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> dabiniluqui@gmail.com
               </a>
             </li>
             <li>
               <a href="#contacto">
-                📍 Pilar, Buenos Aires, AR
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Pilar, Buenos Aires, AR
               </a>
             </li>
           </ul>
@@ -579,7 +609,7 @@
           © 2025 JL Productora de Eventos — Todos los derechos reservados
         </div>
         <div class="footer-location">
-          <span>📍</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>Pilar · Buenos Aires · Argentina</span>
         </div>
       </div>
@@ -609,7 +639,7 @@
         <ul class="modal-items" id="modal-items-list"></ul>
         <div class="modal-note" id="modal-note"></div>
         <a href="#" id="modal-wa-btn" target="_blank" rel="noopener noreferrer" class="modal-wa-btn">
-          <span class="wa-icon">💬</span>
+          <span class="wa-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></span>
           <span>Consultar por WhatsApp</span>
         </a>
       </div>
