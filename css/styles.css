@@ -276,8 +276,19 @@ html.js:not(.no-splash) .splash {
 .hero-title em, .section-title em, .contacto-title em {
   font-family: var(--f-serif); font-style: italic; font-weight: 400;
   font-size: 1.14em; letter-spacing: -.01em; line-height: .9;
-  background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+  background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
   padding-right: .06em;
+}
+/* Safari no pinta el degradé del <em> dentro de las palabras animadas (cada una es su propia capa),
+   así que cuando el título está dividido en palabras, el degradé va en cada palabra */
+:is(.hero-title, .section-title, .contacto-title) em:has(.w) {
+  background: none; color: var(--v-300); -webkit-text-fill-color: currentColor;
+}
+:is(.hero-title, .section-title, .contacto-title) em .w > span {
+  background: var(--grad-text); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  padding-right: .08em; margin-right: -.08em;
 }
 .hero-sub { margin-top: 18px; max-width: 34ch; color: var(--muted); font-size: 15px; line-height: 1.55; }
 .hero-actions { margin-top: 28px; display: grid; grid-template-columns: 1fr; gap: 10px; }
